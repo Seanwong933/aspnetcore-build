@@ -8,7 +8,7 @@ RUN apt-get -qq update && apt-get -qqy --no-install-recommends install wget gnup
     unzip
 
 # Install https://github.com/grpc/grpc dependencies
-RUN sudo apt-get install libc6-compat
+RUN apt-get install libc6-compat
 
 RUN curl -sL https://deb.nodesource.com/setup_10.x |  bash -
 RUN apt-get install -y nodejs
