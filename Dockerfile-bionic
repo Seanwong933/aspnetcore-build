@@ -1,7 +1,6 @@
-FROM mcr.microsoft.com/dotnet/core/sdk:2.2-bionic
+# docker build -t siegrainwong/aspnetcore-build:2.2-bionic -f Dockerfile-bionic
 
-# For base builds
-# ENV CONFIG_FLAGS="--fully-static --without-npm" DEL_PKGS="libstdc++" RM_DIRS=/usr/include
+FROM mcr.microsoft.com/dotnet/core/sdk:2.2-bionic
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -15,6 +14,8 @@ RUN apt-get install -y nodejs npm
 # TODO could uninstall some build dependencies
 
 # fucking debian installs `node` as `nodejs`
-RUN update-alternatives --install /usr/bin/node node /usr/bin/nodejs 10
+RUN update-alternatives --install /usr/bin/node node /usr/bin/nodejs 10.16.0
+RUN npm --version
+RUN node --version
 
 WORKDIR /

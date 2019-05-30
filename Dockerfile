@@ -8,13 +8,7 @@ ENV NODE_VERSION=v10.15.3 NPM_VERSION=6 #YARN_VERSION=latest
 
 # https://github.com/grpc/grpc/issues/15605
 # https://github.com/grpc/grpc/issues/18338
-RUN apk update \
-    && apk --no-cache add libc6-compat \
-    && apk --no-cache add protobuf \
-    && cd /root/.nuget/packages/grpc.tools/1.19.0/tools/linux_x64 \
-    && rm protoc \
-    && ln -s /usr/bin/protoc protoc \
-    && chmod +x grpc_csharp_plugin
+RUN apk update && apk --no-cache add libc6-compat
 
 RUN apk add --no-cache curl make gcc g++ python linux-headers binutils-gold gnupg libstdc++ && \
     for server in ipv4.pool.sks-keyservers.net keyserver.pgp.com ha.pool.sks-keyservers.net; do \
