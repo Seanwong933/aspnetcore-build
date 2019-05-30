@@ -10,11 +10,9 @@ RUN apt-get -qq update
 # Install https://github.com/grpc/grpc dependencies
 RUN apt-get install libc6-i386
 
-RUN apt-get install -y nodejs npm
-# TODO could uninstall some build dependencies
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
+RUN apt-get install -y nodejs
 
-# fucking debian installs `node` as `nodejs`
-RUN update-alternatives --install /usr/bin/node node /usr/bin/nodejs 10.16.0
 RUN npm --version
 RUN node --version
 
