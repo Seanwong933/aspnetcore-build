@@ -7,6 +7,9 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update
 RUN apt-get -qq update
 
+# Install make to make sure node-sass rebuild
+RUN apt-get install make
+
 # Install https://github.com/grpc/grpc dependencies
 RUN apt-get install libc6-i386
 
