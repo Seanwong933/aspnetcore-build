@@ -1,7 +1,7 @@
-# docker build -t siegrainwong/aspnetcore-build:2.2-bionic -f Dockerfile-bionic .
-# docker push siegrainwong/aspnetcore-build:2.2-bionic
+# docker build -t siegrainwong/aspnetcore:2.2-bionic -f Dockerfile-runtime .
+# docker push siegrainwong/aspnetcore:2.2-bionic
 
-FROM mcr.microsoft.com/dotnet/core/sdk:2.2-bionic
+FROM mcr.microsoft.com/dotnet/core/aspnet:2.2-bionic
 
 ENV DEBIAN_FRONTEND noninteractive
 
